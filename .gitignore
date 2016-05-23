@@ -1,3 +1,4 @@
 node_modules/
 .DS_Store
 roskilde-api-lambda.zip
+api-data.json
