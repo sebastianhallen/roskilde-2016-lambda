@@ -1,0 +1,16 @@
+{
+  "name": "roskilde",
+  "version": "1.0.0",
+  "description": "",
+  "main": "roskilde.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "zip -r -X roskilde-api-lambda.zip .",
+    "deploy": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request-promise": "^3.0.0"
+  }
+}
