@@ -75,5 +75,11 @@ exports.handler({
   succeed: data => console.log('yay!', data),
   fail: error => console.log('nay:', error)
 });
+exports.handler({
+  text: 'day+Sat'
+}, {
+  succeed: data => console.log('yay!', data),
+  fail: error => console.log('nay:', error)
+});
 */
 
