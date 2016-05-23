@@ -4,12 +4,25 @@ const api = require('./lib/roskilde-api');
 const utcDate = require('./lib/utcdate');
 const Roskilde = require('./lib/roskilde');
 
+const stageSettings = [{
+  name: 'Apollo',
+  color: '#3232ff'
+}, {
+  name: 'Orange',
+  color: '#ff880e'
+}];
+
 function slackMessageForActs(acts, filter) {
   return {
     text: 'Acts on ' + filter,
     attachments: acts.map(act => {
+      const stage = act.gig.stage.name;
+      const stageSetting = stageSettings.filter(s => s.name.toLowerCase() === stage.toLowerCase());
+      const color = stageSetting.length === 0 ? 'gray' : stageSetting[0].color;
+
       return {
-        text: act.schedule()
+        text: act.schedule(),
+        color: color
       };
     })
   };
@@ -41,7 +54,6 @@ exports.handler = (event, context) => {
   }
 }
 /*
-
 // uncomment for local testing
 exports.handler({
   text: 'day+Friday'
@@ -61,3 +73,4 @@ exports.handler({
   fail: error => console.log('nay:', error)
 });
 */
+
