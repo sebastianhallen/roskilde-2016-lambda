@@ -40,7 +40,9 @@ exports.handler = (event, context) => {
     context.fail('unhandled event: ' + event.text);
   }
 }
+/*
 
+// uncomment for local testing
 exports.handler({
   text: 'day+Friday'
   //text: 'stage+Apollo'
@@ -58,4 +60,4 @@ exports.handler({
   succeed: data => console.log('yay!', data),
   fail: error => console.log('nay:', error)
 });
-
+*/
