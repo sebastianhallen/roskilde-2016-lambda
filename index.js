@@ -5,11 +5,14 @@ const utcDate = require('./lib/utcdate');
 const Roskilde = require('./lib/roskilde');
 
 const stageSettings = [{
-  name: 'Apollo',
+  name: 'Arena',
   color: '#3232ff'
 }, {
   name: 'Orange',
   color: '#ff880e'
+}, {
+  name: 'Avalon',
+  color: '#78ccff'
 }];
 
 function slackMessageForActs(acts, filter) {
