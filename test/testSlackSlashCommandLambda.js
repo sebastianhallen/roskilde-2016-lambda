@@ -1,6 +1,6 @@
 'use strict'
 
-const roskildeFunction = require('./slack-slash-command/handler');
+const roskildeFunction = require('../slack-slash-command/handler');
 const assert = require('chai').assert;
 
 function testDefaultRoskildeCommand(text, done) {
