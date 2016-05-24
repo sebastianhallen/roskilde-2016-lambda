@@ -4,7 +4,7 @@
   "description": "",
   "main": "roskilde.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/mocha ./test.js",
     "package": "zip -r -X roskilde-api-lambda.zip .",
     "deploy": ""
   },
