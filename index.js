@@ -76,38 +76,3 @@ exports.handler = (event, context) => {
   }
 }
 
-/*
-// uncomment for local testing
-exports.handler({
-  text: 'day+Friday'
-  //text: 'stage+Apollo'
-  //text: 'whatsnext'
-}, {
-  succeed: data => console.log('yay!', data),
-  fail: error => console.log('nay:', error)
-});
-/*
-exports.handler({
-  //text: 'day+Friday'
-  text: 'stage+Apollo'
-  //text: 'whatsnext'
-}, {
-  succeed: data => console.log('yay!', data),
-  fail: error => console.log('nay:', error)
-});
-
-exports.handler({
-  text: 'whois+UNCLE+ACID+&+THE+DEADBEATS'
-}, {
-  succeed: data => console.log('yay!', data),
-  fail: error => console.log('nay:', error)
-});
-
-exports.handler({
-  text: 'day+Sat'
-}, {
-  succeed: data => console.log('yay!', data),
-  fail: error => console.log('nay:', error)
-});
-*/
-
