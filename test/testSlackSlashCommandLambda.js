@@ -26,4 +26,5 @@ describe('Roskilde', function() {
   it('should get acts by shorthand day', done => testDefaultRoskildeCommand('day+sat', done));
   it('should get acts by stage', done => testDefaultRoskildeCommand('stage+Apollo', done));
   it('should get details for artist', done => testDefaultRoskildeCommand('whois+UNCLE+ACID+&+THE+DEADBEATS', done));
+  it('should show unhandled command when invoked without args', done => testDefaultRoskildeCommand(undefined, done));
 });

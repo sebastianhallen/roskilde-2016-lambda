@@ -22,8 +22,7 @@
         "response_url": {
             "type": "string"
         }
-    },
-    "required": ["command", "text"]
+    }
   },
   "Empty": {
     "$schema": "http://json-schema.org/draft-04/schema#",
