@@ -1,0 +1,5 @@
+{
+  "name": "roskilde-slack-slash-command",
+  "custom": {},
+  "plugins": ["serverless-models-plugin"]
+}
