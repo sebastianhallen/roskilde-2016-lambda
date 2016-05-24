@@ -1,8 +1,9 @@
-'use strict'
+'use strict';
 
-const api = require('./lib/roskilde-api');
-const utcDate = require('./lib/utcdate');
-const Roskilde = require('./lib/roskilde');
+const api = require('../lib/roskilde-api');
+const utcDate = require('../lib/utcdate');
+const Roskilde = require('../lib/roskilde');
+const request = require('request-promise');
 
 const stageSettings = [{
   name: 'Arena',
@@ -42,10 +43,13 @@ function slackMessageForActsWithDetails(acts, filter) {
   };
 }
 
-exports.handler = (event, context) => {
+module.exports.handler = (event, context, cb) => {
   const filterTokens = event.text.split('+');
   const filterType = filterTokens[0];
   const filterCriteria = filterTokens.slice(1);
+  
+//  const filterType = 'day';
+//  const filterCriteria = ['Wednesday'];
   
   const args = {
     filterType,
@@ -63,11 +67,14 @@ exports.handler = (event, context) => {
     'day': slackMessageForActs,
     'whois': slackMessageForActsWithDetails,
   }[filterType];
-  
+
   if (payload) {
     Promise.all([
       payload()
         .then(acts => context.succeed(render(acts, filterCriteria.join(' '))))
+        .then(acts => cb(null, {
+          message: 'lambda done'
+        }))
         .catch(error => context.fail(error))
     ]);
   }

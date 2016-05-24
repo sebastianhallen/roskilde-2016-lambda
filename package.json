@@ -1,8 +1,8 @@
 {
-  "name": "roskilde",
+  "name": "roskilde-slack-slash-command",
   "version": "1.0.0",
   "description": "",
-  "main": "roskilde.js",
+  "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha ./test.js",
     "package": "zip -r -X roskilde-api-lambda.zip .",
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.1"
+    "mocha": "^2.5.1",
+    "serverless-models-plugin": "^1.0.1"
   }
 }
