@@ -3,45 +3,8 @@
 const api = require('../lib/roskilde-api');
 const utcDate = require('../lib/utcdate');
 const Roskilde = require('../lib/roskilde');
+const slackMessage = require('../lib/slack-message');
 const request = require('request-promise');
-
-const stageSettings = [{
-  name: 'Arena',
-  color: '#3232ff'
-}, {
-  name: 'Orange',
-  color: '#ff880e'
-}, {
-  name: 'Avalon',
-  color: '#78ccff'
-}];
-
-function slackMessageForActs(acts, filter) {
-  return {
-    text: 'Acts on ' + filter,
-    attachments: acts.map(act => {
-      const stage = act.gig.stage.name;
-      const stageSetting = stageSettings.filter(s => s.name.toLowerCase() === stage.toLowerCase());
-      const color = stageSetting.length === 0 ? 'gray' : stageSetting[0].color;
-
-      return {
-        text: act.schedule(),
-        color: color
-      };
-    })
-  };
-}
-
-function slackMessageForActsWithDetails(acts, filter) {
-  return {
-    text: 'Artist: ' + filter,
-    attachments: acts.map(act => {
-      return {
-        text: act.schedule() + ': ' + act.description
-      };
-    })
-  };
-}
 
 module.exports.handler = (event, context, cb) => {
   const filterTokens = event.text.split('+');
@@ -63,9 +26,9 @@ module.exports.handler = (event, context, cb) => {
   }[filterType];
 
   const render = {
-    'stage': slackMessageForActs,
-    'day': slackMessageForActs,
-    'whois': slackMessageForActsWithDetails,
+    'stage': slackMessage.forActs,
+    'day': slackMessage.forActs,
+    'whois': slackMessage.forDetailedActs,
   }[filterType];
 
   if (payload) {
