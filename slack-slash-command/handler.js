@@ -27,7 +27,7 @@ module.exports.handler = (event, context, cb) => {
 
   const render = {
     'stage': slackMessage.forActs,
-    'day': slackMessage.forActs,
+    'day': slackMessage.forActsByStage,
     'whois': slackMessage.forDetailedActs,
   }[filterType];
 
