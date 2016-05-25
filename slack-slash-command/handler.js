@@ -7,7 +7,7 @@ const slackMessage = require('../lib/slack-message');
 const request = require('request-promise');
 
 module.exports.handler = (event, context, cb) => {
-  const commandTokens = (event && event.text) ? event.text.split('+') : [];
+  const commandTokens = (event && event.text) ? event.text.split(' ') : [];
   const command = commandTokens.length > 0 ? commandTokens[0] : null;
   const commandArgs = commandTokens.length > 1 ? commandTokens.slice(1) : [];
 
